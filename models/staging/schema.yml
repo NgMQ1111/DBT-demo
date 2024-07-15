@@ -1,0 +1,48 @@
+version: 2
+
+models:
+  - name: fct_campaign
+    description: "Thông tin chiến dịch"
+    columns:
+      - name: client_id
+        description: "Định danh khách hàng, khóa ngoại tham chiếu đến bảng dim_customer"
+        tests:
+          - relationships:
+              to: ref('dim_customer')
+              field: client_id
+      - name: month
+        description: "Tháng liên lạc, khóa ngoại tham chiếu đến bảng dim_time"
+        tests:
+          - relationships:
+              to: ref('dim_time')
+              field: month
+      - name: day
+        description: "Ngày liên lạc, khóa ngoại tham chiếu đến bảng dim_time"
+        tests:
+          - relationships:
+              to: ref('dim_time')
+              field: day
+      - name: contact_duration
+        description: "Thời gian liên lạc, khóa ngoại tham chiếu đến bảng dim_contact"
+        tests:
+          - relationships:
+              to: ref('dim_contact')
+              field: client_id
+      - name: number_contacts
+        description: "Số lần liên lạc, khóa ngoại tham chiếu đến bảng dim_contact"
+        tests:
+          - relationships:
+              to: ref('dim_contact')
+              field: client_id
+      - name: previous_campaign_contacts
+        description: "Số lần liên lạc trước đó, khóa ngoại tham chiếu đến bảng dim_contact"
+        tests:
+          - relationships:
+              to: ref('dim_contact')
+              field: client_id
+      - name: previous_outcome
+        description: "Kết quả trước đó, khóa ngoại tham chiếu đến bảng dim_contact"
+        tests:
+          - relationships:
+              to: ref('dim_contact')
+              field: client_id

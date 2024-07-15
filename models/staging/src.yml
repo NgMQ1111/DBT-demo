@@ -1,0 +1,56 @@
+version: 2
+
+sources:
+  - name: campaign_marketing
+    schema: campaign_marketing
+    tables:
+      - name: client
+        description: "Thông tin khách hàng"
+        columns:
+          - name: client_id
+            description: "Định danh duy nhất cho mỗi khách hàng"
+          - name: age
+            description: "Tuổi khách hàng"
+          - name: job
+            description: "Nghề nghiệp"
+          - name: marital
+            description: "Tình trạng hôn nhân"
+          - name: education
+            description: "Trình độ học vấn"
+          - name: credit_default
+            description: "Rủi ro tín dụng"
+
+      - name: time
+        description: "Thông tin thời gian"
+        columns:
+          - name: time_id
+          - name: month
+            description: "Tháng liên lạc"
+          - name: day
+            description: "Ngày liên lạc"
+
+      - name: contact
+        description: "Thông tin liên lạc"
+        columns:
+          - name: contact_id
+          - name: contact_duration
+            description: "Thời gian liên lạc"
+          - name: number_contacts
+            description: "Số lần liên lạc"
+          - name: previous_campaign_contacts
+            description: "Số lần liên lạc trước đó"
+          - name: previous_outcome
+            description: "Kết quả trước đó"
+
+      - name: campaign
+        description: "Thông tin chiến dịch"
+        columns:
+          - name: client_id
+          - name: time_id
+          - name: contact_id
+          - name: cons_price_idx
+            description: "Chỉ số giá tiêu dùng"
+          - name: euribor_three_months
+            description: "Lãi suất Euribor"
+          - name: campaign_outcome
+            description: "Kết quả chiến dịch"
